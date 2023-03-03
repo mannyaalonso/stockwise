@@ -4,12 +4,16 @@ import { useState, useEffect } from 'react'
 const Watchlist = () => {
   const stockList = [
     {
-      name: "APPL",
-      handle: "Apple",
+      id: 1,
+      ticker: "AAPL",
+      name: "Apple",
       price: 127,
-      imageUrl:
-        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      href: "#",
+    },
+    {
+      id: 2,
+      ticker: "TSLA",
+      name: "Tesla",
+      price: 198,
     },
   ]
 
@@ -33,7 +37,7 @@ const Watchlist = () => {
           <div className="mt-6 flow-root">
             <ul className="-my-5 divide-y divide-gray-200">
               {stockList.map((stock) => (
-                <Stock stock={stock} handleStockDelete={handleStockDelete}/>
+                <Stock key={stock.id}  stock={stock} handleStockDelete={handleStockDelete}/>
               ))}
             </ul>
           </div>
