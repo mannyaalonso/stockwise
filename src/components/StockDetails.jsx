@@ -1,4 +1,4 @@
-// import { Triangle } from "react-loader-spinner"
+import { Triangle } from "react-loader-spinner"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import React from "react"
@@ -66,15 +66,7 @@ const StockDetails = ({ ticker }) => {
         const close = Object.values(response.data.items)
         console.log(close)
         setData({
-          labels: [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ],
+          labels: ["", "", "", "", "", "", ""],
           datasets: [
             {
               label: ["15m"],
@@ -106,19 +98,18 @@ const StockDetails = ({ ticker }) => {
 
   return (
     <div className="h-36 w-full flex justify-center items-center">
-      {!isLoading && (
+      {!isLoading ? (
         <Line className="w-full mx-auto" options={chartOptions} data={data} />
-      // ) : (
-      //   // <Triangle
-      //   //   height="60"
-      //   //   width="60"
-      //   //   color="#4fa94d"
-      //   //   ariaLabel="triangle-loading"
-      //   //   wrapperStyle={{}}
-      //   //   wrapperClassName=""
-      //   //   visible={true}
-      //   // />
-      // )}
+      ) : (
+        <Triangle
+          height="80"
+          width="80"
+          color="#0889AC"
+          ariaLabel="triangle-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
       )}
     </div>
   )
