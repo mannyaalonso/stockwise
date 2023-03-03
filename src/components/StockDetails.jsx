@@ -64,7 +64,6 @@ const StockDetails = ({ ticker }) => {
       .request(options)
       .then(function (response) {
         const close = Object.values(response.data.items)
-        console.log(close)
         setData({
           labels: ["", "", "", "", "", "", ""],
           datasets: [
