@@ -25,6 +25,7 @@ export default function Registration () {
         navigate('/signin')
       }
     }
+    setFormState({ name: "", email: "", password: "", passwordConfirm: "" })
   }
 
   return (
