@@ -75,7 +75,7 @@ const Stock = ({ stock, handleStockDelete }) => {
           >
             <div className="flex items-center space-x-4">
               <div className="flex-shrink-0">
-                <div className="h-8 w-8 bg-gradient-to-r from-sky-800 to-cyan-600 flex justify-center items-center rounded-full text-white">
+                <div className="h-8 w-8 bg-gradient-to-r from-[#4abea3] to-[#64fcd9] flex justify-center items-center rounded-full text-white">
                   {stock.name[0]}
                 </div>
               </div>
@@ -87,7 +87,7 @@ const Stock = ({ stock, handleStockDelete }) => {
               </div>
               <div className="min-w-0">
                 {gainPercent > 0 ? (
-                  <p className="truncate text-xs text-emerald-400">
+                  <p className="truncate text-xs bg-[#64fcd9] rounded-full p-1">
                     +{gainPercent.toFixed(2)}%
                   </p>
                 ) : (
@@ -113,7 +113,7 @@ const Stock = ({ stock, handleStockDelete }) => {
         <Triangle
           height="40"
           width="40"
-          color="#0788ab"
+          color="#4abea3"
           ariaLabel="triangle-loading"
           wrapperStyle={{}}
           wrapperClassName=""
