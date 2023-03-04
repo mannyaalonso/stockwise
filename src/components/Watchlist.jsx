@@ -2,13 +2,13 @@ import Stock from "./Stock"
 import { useState, useEffect } from 'react'
 
 const Watchlist = () => {
-  const stockList = []
+  const [watchlist, setWatchlist] = useState([])
 
   const handleStockDelete = () => {
 
   }
 
-  return (
+  return watchlist && (
     <section aria-labelledby="recent-hires-title">
       <div className="overflow-hidden rounded-lg bg-white shadow">
         <div className="p-6">
@@ -23,7 +23,7 @@ const Watchlist = () => {
           </h2>
           <div className="mt-6 flow-root">
             <ul className="-my-5 divide-y divide-gray-200">
-              {stockList.map((stock) => (
+              {watchlist.map((stock) => (
                 <Stock key={stock.id}  stock={stock} handleStockDelete={handleStockDelete}/>
               ))}
             </ul>
