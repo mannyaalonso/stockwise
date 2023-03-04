@@ -11,6 +11,7 @@ import { CheckWatchlist } from "../services/PostServices"
 import { PostStock } from "../services/PostServices"
 import { GetAllStocks } from "../services/PostServices"
 import { DestroyStock } from "../services/PostServices"
+import FourOhFour from "./404"
 import {
   AcademicCapIcon,
   BanknotesIcon,
@@ -384,7 +385,7 @@ const Dashboard = ({ user, handleLogOut }) => {
       </div>
     </>
   ) : (
-    <div>Please Sign In</div>
+    <FourOhFour />
   )
 }
 
