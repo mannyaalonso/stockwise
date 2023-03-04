@@ -1,6 +1,7 @@
 import { LockClosedIcon } from "@heroicons/react/20/solid"
 import { AiOutlineStock } from "react-icons/ai"
 import { useNavigate } from "react-router-dom"
+import { RegisterUser } from "../services/Auth"
 import { useState } from 'react'
 
 export default function Registration () {
@@ -13,17 +14,27 @@ export default function Registration () {
     password: '',
     passwordConfirm: '',
   }
+
   const [formState, setFormState] = useState(intialState)
 
   const handleChange = (e) => {
     setFormState({...formState, [e.target.id]: e.target.value})
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (formState.name && formState.email && formState.password && formState.passwordConfirm) {
       if (formState.password === formState.passwordConfirm) {
-        navigate('/signin')
+        try {
+          await RegisterUser({
+            name: formState.name,
+            email: formState.email,
+            password: formState.password
+          })
+          navigate('/signin')
+        } catch (err) {
+          console.log(err)
+        }
       }
     }
     setFormState({ name: "", email: "", password: "", passwordConfirm: "" })

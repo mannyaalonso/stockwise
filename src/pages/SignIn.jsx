@@ -1,9 +1,10 @@
 import { LockClosedIcon } from "@heroicons/react/20/solid"
 import { AiOutlineStock } from "react-icons/ai"
 import { useNavigate } from "react-router-dom"
+import { SignInUser } from "../services/Auth"
 import { useState } from "react"
 
-export default function SignIn() {
+export default function SignIn({ setUser }) {
   const navigate = useNavigate()
 
   const intialState = {
@@ -16,10 +17,16 @@ export default function SignIn() {
     setFormState({ ...formState, [e.target.id]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (formState.email && formState.password) {
+      try {
+        const payload = await SignInUser(formState)
+        setUser(payload)
         navigate("/dashboard")
+      } catch (err) {
+        console.log(err)
+      }
     }
     setFormState({ email: "", password: "" })
   }
