@@ -13,8 +13,7 @@ const Stock = ({ stock, handleStockDelete }) => {
   let gainPercent = 0
 
   if (history) {
-    gainPercent =
-      (history[history.length - 1].close - history[0].close) / history[0].close
+    gainPercent = history[history.length - 1].close - history[0].close
   }
 
   const options = {
@@ -85,17 +84,20 @@ const Stock = ({ stock, handleStockDelete }) => {
                 </p>
                 <p className="truncate text-sm text-gray-500">{stock.name}</p>
               </div>
-              <div className="min-w-0">
-                {gainPercent > 0 ? (
-                  <p className="truncate text-xs bg-[#64fcd9] rounded-full p-1">
-                    +{gainPercent.toFixed(2)}%
+              {gainPercent > 0 ? (
+                <div className="w-12 bg-[#64fcd9] p-1 rounded-full flex justify-center items-center">
+                  <p className="truncate text-[.6rem] text-[#3b927e] font-bold">
+                    +${gainPercent.toFixed(2)}
                   </p>
-                ) : (
-                  <p className="truncate text-xs text-red-400">
-                    {gainPercent.toFixed(2)}%
+                </div>
+              ) : (
+                <div className="w-12 bg-[#fed7d7] p-1 rounded-full flex justify-center items-center">
+                  <p className="truncate text-[.6rem] text-[#fc6464] font-bold">
+                    ${gainPercent.toFixed(2)}
                   </p>
-                )}
-              </div>
+                </div>
+              )}
+
               <div>
                 <p className="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                   ${history[history.length - 1].close}
