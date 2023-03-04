@@ -6,14 +6,17 @@ import Dashboard from './pages/Dashboard'
 import SignIn from './pages/SignIn'
 import Home from './pages/Home'
 import FourOhFour from './pages/404'
+import { useNavigate } from 'react-router-dom'
 
 
 function App() {
   const [user, setUser] = useState(null)
+  const navigate = useNavigate()
 
   const handleLogOut = () => {
     setUser(null)
     localStorage.clear()
+    navigate('/signin')
   }
 
   const checkToken = async () => {
