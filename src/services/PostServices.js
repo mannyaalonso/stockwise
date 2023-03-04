@@ -12,7 +12,7 @@ export const CheckWatchlist = async () => {
       localStorage.setItem('watchlistId', res.data.id)
     }
   } catch (error) {
-    throw error
+    console.log(error)
   }
 }
 
@@ -24,6 +24,27 @@ export const PostStock = async (stock) => {
     )
     return res.data
   } catch (error) {
-    throw error
+    console.log(error)
+  }
+}
+
+export const GetAllStocks = async () => {
+  try {
+    const res = await Client.get(
+      `/api/stocks/${localStorage.getItem("watchlistId")}`)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const DestroyStock = async (id) => {
+  try {
+    const res = await Client.delete(
+      `/api/stocks/${id}`
+    )
+    return res.data
+  } catch (error) {
+    console.log(error)
   }
 }

@@ -2,6 +2,15 @@ import { Fragment, useState, useEffect } from "react"
 import { AiOutlineStock } from "react-icons/ai"
 import { Menu, Popover, Transition } from "@headlessui/react"
 import { ReactSearchAutocomplete } from "react-search-autocomplete"
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid"
+import data from '../data/data'
+import Watchlist from "../components/Watchlist"
+import Screener from "../components/Screener"
+import News from "../components/News"
+import { CheckWatchlist } from "../services/PostServices"
+import { PostStock } from "../services/PostServices"
+import { GetAllStocks } from "../services/PostServices"
+import { DestroyStock } from "../services/PostServices"
 import {
   AcademicCapIcon,
   BanknotesIcon,
@@ -13,52 +22,23 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline"
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid"
-import data from '../data/data'
-import Watchlist from "../components/Watchlist"
-import Screener from "../components/Screener"
-import News from "../components/News"
-import { CheckWatchlist } from "../services/PostServices"
-import { PostStock } from "../services/PostServices"
 
-const user = {
-  name: "Manny Alonso",
-  email: "mannyaalonso@gmail.com",
-  role: "mannyaalonso",
-  imageUrl: "https://i.imgur.com/ssxQ7lK.jpg",
-}
 const navigation = [
   { name: "Dashboard", href: "", current: true },
 ]
-
-
-const stats = [
-  // { label: "Vacation days left", value: 12 },
-  // { label: "Sick days left", value: 4 },
-  // { label: "Personal days left", value: 2 },
-]
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
 }
 
 export default function Example({ user, handleLogOut }) {
-  const [searchedStock, setSearchedStock] = useState()
+  const [watchlist, setWatchlist] = useState([])
 
   const userNavigation = [{ name: "Sign out", href: "#" }]
 
-  const handleOnSearch = (string, results) => {
-    // onSearch will have as the first callback parameter
-    // the string searched and for the second the results.
-    // console.log(string, results)
-  }
-
   const handleOnSelect = async (item) => {
-    PostStock(item.ticker)
-  }
-
-  const handleOnFocus = () => {
+    await PostStock(item.ticker)
+    callGetStocks()
   }
 
   const formatResult = (item) => {
@@ -71,9 +51,20 @@ export default function Example({ user, handleLogOut }) {
     )
   }
 
+  const handleStockDelete = async (id) => {
+    await DestroyStock(id)
+    callGetStocks()
+  }
+
+  const callGetStocks = async () => {
+    await CheckWatchlist()
+    const data = await GetAllStocks()
+    setWatchlist(data)
+  }
+
   useEffect(() => {
-    CheckWatchlist()
-  },[])
+    callGetStocks()
+  }, [])
 
   return user ? (
     <>
@@ -170,9 +161,7 @@ export default function Example({ user, handleLogOut }) {
                             <ReactSearchAutocomplete
                               className=""
                               items={data}
-                              onSearch={handleOnSearch}
                               onSelect={handleOnSelect}
-                              onFocus={handleOnFocus}
                               formatResult={formatResult}
                               styling={{ zIndex: 4 }}
                               placeholder="Search a stock to save it"
@@ -358,7 +347,7 @@ export default function Example({ user, handleLogOut }) {
                         </div>
                       </div>
                     </div>
-                    <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
+                    {/* <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
                       {stats.map((stat) => (
                         <div
                           key={stat.label}
@@ -368,10 +357,10 @@ export default function Example({ user, handleLogOut }) {
                           <span className="text-gray-600">{stat.label}</span>
                         </div>
                       ))}
-                    </div>
+                    </div> */}
                   </div>
                 </section>
-                <Watchlist />
+                <Watchlist watchlist={watchlist} handleStockDelete={handleStockDelete} />
                 <Screener />
               </div>
 

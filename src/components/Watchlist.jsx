@@ -1,14 +1,8 @@
 import Stock from "./Stock"
-import { useState, useEffect } from 'react'
 
-const Watchlist = () => {
-  const [watchlist, setWatchlist] = useState([])
+const Watchlist = ({ watchlist, handleStockDelete }) => {
 
-  const handleStockDelete = () => {
-
-  }
-
-  return watchlist && (
+  return watchlist?.length > 0 && (
     <section aria-labelledby="recent-hires-title">
       <div className="overflow-hidden rounded-lg bg-white shadow">
         <div className="p-6">
