@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Dashboard from './pages/Dashboard'
 import SignIn from './pages/SignIn'
 import Home from './pages/Home'
+import FourOhFour from './pages/404'
 
 
 function App() {
@@ -33,10 +34,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn setUser={setUser} />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/dashboard" element={<Dashboard user={user} handleLogOut={handleLogOut} />} />
+        <Route
+          path="/dashboard"
+          element={<Dashboard user={user} handleLogOut={handleLogOut} />}
+        />
+        <Route component={FourOhFour} />
       </Routes>
     </main>
-  );
+  )
 }
 
 export default App;
