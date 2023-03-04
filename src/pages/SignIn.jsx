@@ -36,7 +36,7 @@ export default function SignIn({ setUser }) {
       <div className="h-screen flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
-            <AiOutlineStock className="mx-auto h-12 w-auto bg-gradient-to-r from-sky-800 to-cyan-600 text-white rounded-full p-2" />
+            <AiOutlineStock className="mx-auto h-12 w-auto bg-gradient-to-r from-[#4abea3] to-[#64fcd9] text-white rounded-full p-2" />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
               Sign in to Stockwise
             </h2>
@@ -56,7 +56,7 @@ export default function SignIn({ setUser }) {
                   onChange={handleChange}
                   autoComplete="email"
                   required
-                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Email address"
                 />
               </div>
@@ -72,7 +72,7 @@ export default function SignIn({ setUser }) {
                   onChange={handleChange}
                   autoComplete="current-password"
                   required
-                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Password"
                 />
               </div>
@@ -80,11 +80,11 @@ export default function SignIn({ setUser }) {
             <div>
               <button
                 type="submit"
-                className="group relative flex w-full justify-center rounded-md bg-gradient-to-r from-sky-800 to-cyan-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="group relative flex w-full justify-center rounded-md bg-gradient-to-r from-[#4abea3] to-[#64fcd9] py-2 px-3 text-sm font-semibold text-white hover:bg-slate-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                   <LockClosedIcon
-                    className="h-5 w-5 text-gradient-to-r from-sky-700 to-cyan-500 group-hover:text-indigo-400"
+                    className="h-5 w-5 text-gradient-to-r from-sky-700 to-cyan-500 group-hover:text-slate-300"
                     aria-hidden="true"
                   />
                 </span>
