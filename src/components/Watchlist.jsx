@@ -2,20 +2,7 @@ import Stock from "./Stock"
 import { useState, useEffect } from 'react'
 
 const Watchlist = () => {
-  const stockList = [
-    {
-      id: 1,
-      ticker: "AAPL",
-      name: "Apple",
-      price: 127,
-    },
-    {
-      id: 2,
-      ticker: "TSLA",
-      name: "Tesla",
-      price: 198,
-    },
-  ]
+  const stockList = []
 
   const handleStockDelete = () => {
 
@@ -31,7 +18,7 @@ const Watchlist = () => {
           >
             Watchlist
             <span className="text-xs text-gray-400">
-              Search a stock to add it to your watchlist
+              Search a stock to save it
             </span>
           </h2>
           <div className="mt-6 flow-root">

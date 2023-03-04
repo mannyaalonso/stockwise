@@ -1,4 +1,4 @@
-import { Fragment } from "react"
+import { Fragment, useState, useEffect } from "react"
 import { AiOutlineStock } from "react-icons/ai"
 import { Menu, Popover, Transition } from "@headlessui/react"
 import { ReactSearchAutocomplete } from "react-search-autocomplete"
@@ -18,6 +18,8 @@ import data from '../data/data'
 import Watchlist from "../components/Watchlist"
 import Screener from "../components/Screener"
 import News from "../components/News"
+import { CheckWatchlist } from "../services/PostServices"
+import { PostStock } from "../services/PostServices"
 
 const user = {
   name: "Manny Alonso",
@@ -28,10 +30,7 @@ const user = {
 const navigation = [
   { name: "Dashboard", href: "", current: true },
 ]
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Sign out", href: "#" },
-]
+
 
 const stats = [
   // { label: "Vacation days left", value: 12 },
@@ -40,31 +39,26 @@ const stats = [
 ]
 
 
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
 }
 
-export default function Example() {
+export default function Example({ user, handleLogOut }) {
+  const [searchedStock, setSearchedStock] = useState()
+
+  const userNavigation = [{ name: "Sign out", href: "#" }]
 
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
-    console.log(string, results)
+    // console.log(string, results)
   }
 
-  const handleOnHover = (result) => {
-    // the item hovered
-    console.log("HOVER", result)
-  }
-
-  const handleOnSelect = (item) => {
-    // the item selected
-    console.log("Select", item)
+  const handleOnSelect = async (item) => {
+    PostStock(item.ticker)
   }
 
   const handleOnFocus = () => {
-    console.log("Focused")
   }
 
   const formatResult = (item) => {
@@ -77,7 +71,11 @@ export default function Example() {
     )
   }
 
-  return (
+  useEffect(() => {
+    CheckWatchlist()
+  },[])
+
+  return user ? (
     <>
       <div className="min-h-full">
         <Popover
@@ -98,7 +96,6 @@ export default function Example() {
 
                   {/* Right section on desktop */}
                   <div className="hidden lg:ml-4 lg:flex lg:items-center lg:py-5 lg:pr-0.5">
-
                     {/* Profile dropdown */}
                     <Menu as="div" className="relative ml-4 flex-shrink-0">
                       <div>
@@ -121,15 +118,15 @@ export default function Example() {
                           {userNavigation.map((item) => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (
-                                <a
-                                  href={item.href}
+                                <button
+                                  onClick={handleLogOut}
                                   className={classNames(
                                     active ? "bg-gray-100" : "",
                                     "block px-4 py-2 text-sm text-white"
                                   )}
                                 >
                                   {item.name}
-                                </a>
+                                </button>
                               )}
                             </Menu.Item>
                           ))}
@@ -144,9 +141,8 @@ export default function Example() {
                       <div className="hidden lg:col-span-2 lg:block">
                         <nav className="flex space-x-4">
                           {navigation.map((item) => (
-                            <a
+                            <button
                               key={item.name}
-                              href={item.href}
                               className={classNames(
                                 item.current ? "text-white" : "text-cyan-100",
                                 "rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10"
@@ -154,7 +150,7 @@ export default function Example() {
                               aria-current={item.current ? "page" : undefined}
                             >
                               {item.name}
-                            </a>
+                            </button>
                           ))}
                         </nav>
                       </div>
@@ -175,11 +171,11 @@ export default function Example() {
                               className=""
                               items={data}
                               onSearch={handleOnSearch}
-                              onHover={handleOnHover}
                               onSelect={handleOnSelect}
                               onFocus={handleOnFocus}
                               formatResult={formatResult}
                               styling={{ zIndex: 4 }}
+                              placeholder="Search a stock to save it"
                             />
                           </div>
                         </div>
@@ -398,5 +394,7 @@ export default function Example() {
         </footer>
       </div>
     </>
+  ) : (
+    <div>Please Sign In</div>
   )
 }
