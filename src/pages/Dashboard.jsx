@@ -22,6 +22,7 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline"
+import profile1 from "../assets/profile1.png"
 
 const navigation = [
   { name: "Dashboard", href: "", current: true },
@@ -31,7 +32,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
 }
 
-export default function Example({ user, handleLogOut }) {
+const Dashboard = ({ user, handleLogOut }) => {
   const [watchlist, setWatchlist] = useState([])
 
   const userNavigation = [{ name: "Sign out", href: "#" }]
@@ -71,7 +72,7 @@ export default function Example({ user, handleLogOut }) {
       <div className="min-h-full">
         <Popover
           as="header"
-          className="bg-gradient-to-r from-sky-800 to-cyan-600 pb-24"
+          className="bg-gradient-to-r from-[#4abea3] to-[#64fcd9] pb-24"
         >
           {({ open }) => (
             <>
@@ -94,7 +95,7 @@ export default function Example({ user, handleLogOut }) {
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"
-                            src={user.imageUrl}
+                            src={profile1}
                             alt=""
                           />
                         </Menu.Button>
@@ -224,11 +225,7 @@ export default function Example({ user, handleLogOut }) {
                         <div className="pt-3 pb-2">
                           <div className="flex items-center justify-between px-4">
                             <div>
-                              <img
-                                className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=cyan&shade=600"
-                                alt="Your Company"
-                              />
+                              <AiOutlineStock className="mx-auto h-12 w-auto  text-cyan-500 rounded-full p-2" />
                             </div>
                             <div className="-mr-2">
                               <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500">
@@ -257,7 +254,7 @@ export default function Example({ user, handleLogOut }) {
                             <div className="flex-shrink-0">
                               <img
                                 className="h-10 w-10 rounded-full"
-                                src={user.imageUrl}
+                                src={profile1}
                                 alt=""
                               />
                             </div>
@@ -276,21 +273,21 @@ export default function Example({ user, handleLogOut }) {
                               <span className="sr-only">
                                 View notifications
                               </span>
-                              <BellIcon
+                              {/* <BellIcon
                                 className="h-6 w-6"
                                 aria-hidden="true"
-                              />
+                              /> */}
                             </button>
                           </div>
                           <div className="mt-3 space-y-1 px-2">
                             {userNavigation.map((item) => (
-                              <a
+                              <button
                                 key={item.name}
-                                href={item.href}
+                                onClick={handleLogOut}
                                 className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
                               >
                                 {item.name}
-                              </a>
+                              </button>
                             ))}
                           </div>
                         </div>
@@ -321,7 +318,7 @@ export default function Example({ user, handleLogOut }) {
                           <div className="flex-shrink-0">
                             <img
                               className="mx-auto h-20 w-20 rounded-full"
-                              src={user.imageUrl}
+                              src={profile1}
                               alt=""
                             />
                           </div>
@@ -360,7 +357,10 @@ export default function Example({ user, handleLogOut }) {
                     </div> */}
                   </div>
                 </section>
-                <Watchlist watchlist={watchlist} handleStockDelete={handleStockDelete} />
+                <Watchlist
+                  watchlist={watchlist}
+                  handleStockDelete={handleStockDelete}
+                />
                 <Screener />
               </div>
 
@@ -387,3 +387,5 @@ export default function Example({ user, handleLogOut }) {
     <div>Please Sign In</div>
   )
 }
+
+export default Dashboard
