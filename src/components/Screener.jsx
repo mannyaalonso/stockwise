@@ -1,19 +1,16 @@
+import { useState } from "react"
+import StockList from "./StockList"
 import {
   AcademicCapIcon,
   BanknotesIcon,
-  Bars3Icon,
-  BellIcon,
-  CheckBadgeIcon,
   ClockIcon,
   ReceiptRefundIcon,
-  UsersIcon,
-  XMarkIcon,
 } from "@heroicons/react/24/outline"
 
 const actions = [
   {
     icon: BanknotesIcon,
-    name: "Small Cap Gainers",
+    name: "Day Gainers",
     description:
       "Small-cap stocks are shares of companies with total market capitalization in the range of about $300 million to $2 billion.",
     href: "#",
@@ -21,25 +18,7 @@ const actions = [
     iconBackground: "bg-teal-50",
   },
   {
-    icon: ClockIcon,
-    name: "Most Active",
-    description:
-      "Stocks on an exchange that trade the highest volume of shares over a given period.",
-    href: "#",
-    iconForeground: "text-teal-700",
-    iconBackground: "bg-teal-50",
-  },
-  {
-    icon: BanknotesIcon,
-    name: "Day Losers",
-    description:
-      "Small-cap stocks are shares of companies with total market capitalization in the range of about $300 million to $2 billion.",
-    href: "#",
-    iconForeground: "text-teal-700",
-    iconBackground: "bg-teal-50",
-  },
-  {
-    icon: ClockIcon,
+    icon: ReceiptRefundIcon,
     name: "Day Losers",
     description:
       "Stocks on an exchange that trade the highest volume of shares over a given period.",
@@ -54,9 +33,14 @@ function classNames(...classes) {
 }
 
 const Screener = () => {
+  const [toggle, setToggle] = useState(false)
+
   return (
     <section aria-labelledby="quick-links-title">
-      <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
+      <div
+        onClick={() => setToggle(!toggle)}
+        className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0"
+      >
         <h2 className="sr-only" id="quick-links-title">
           Quick links
         </h2>
@@ -107,6 +91,7 @@ const Screener = () => {
           </div>
         ))}
       </div>
+      {toggle ? <StockList /> : null}
     </section>
   )
 }

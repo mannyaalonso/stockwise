@@ -8,43 +8,44 @@ import Home from './pages/Home'
 import FourOhFour from './pages/404'
 import { useNavigate } from 'react-router-dom'
 
-
 function App() {
-  const [user, setUser] = useState(null)
-  const navigate = useNavigate()
+    const [user, setUser] = useState(null)
+    const navigate = useNavigate()
 
-  const handleLogOut = () => {
-    setUser(null)
-    localStorage.clear()
-    navigate('/signin')
-  }
-
-  const checkToken = async () => {
-    const user = await CheckSession()
-    setUser(user)
-  }
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      checkToken()
+    const handleLogOut = () => {
+        setUser(null)
+        localStorage.clear()
+        navigate('/signin')
     }
-  },[])
-  
-  return (
-    <main>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn setUser={setUser} />} />
-        <Route path="/registration" element={<Registration />} />
-        <Route
-          path="/dashboard"
-          element={<Dashboard user={user} handleLogOut={handleLogOut} />}
-        />
-        <Route component={FourOhFour} />
-      </Routes>
-    </main>
-  )
+
+    const checkToken = async () => {
+        const user = await CheckSession()
+        setUser(user)
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) {
+            checkToken()
+        }
+    }, [])
+
+    return (
+        <main>
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/signin' element={<SignIn setUser={setUser} />} />
+                <Route path='/registration' element={<Registration />} />
+                <Route
+                    path='/dashboard'
+                    element={
+                        <Dashboard user={user} handleLogOut={handleLogOut} />
+                    }
+                />
+                <Route path='*' element={<FourOhFour />} />
+            </Routes>
+        </main>
+    )
 }
 
-export default App;
+export default App
