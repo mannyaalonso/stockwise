@@ -18,7 +18,7 @@ const Stock = ({ stock, handleStockDelete }) => {
 
   const options = {
     method: "GET",
-    url: `https://yahoo-finance15.p.rapidapi.com/api/yahoo/hi/history/${stock.name}/15m`,
+    url: `https://yahoo-finance15.p.rapidapi.com/api/yahoo/hi/history/${stock.ticker}/15m`,
     params: { diffandsplits: "false" },
     headers: {
       "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
@@ -80,7 +80,7 @@ const Stock = ({ stock, handleStockDelete }) => {
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-medium text-gray-900">
-                  {stock.name}
+                  {stock.ticker}
                 </p>
                 <p className="truncate text-sm text-gray-500">{stock.name}</p>
               </div>

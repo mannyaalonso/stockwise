@@ -39,7 +39,7 @@ const Dashboard = ({ user, handleLogOut }) => {
   const userNavigation = [{ name: "Sign out", href: "#" }]
 
   const handleOnSelect = async (item) => {
-    await PostStock(item.ticker)
+    await PostStock(item)
     callGetStocks()
   }
 
