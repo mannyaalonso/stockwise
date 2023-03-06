@@ -44,6 +44,15 @@ export const GetAllStocks = async () => {
     }
 }
 
+export const GetTrendingStocks = async () => {
+  try {
+    const res = await Client.get("/api/stocks/trending")
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export const DestroyStock = async (id) => {
     try {
         const res = await Client.delete(`/api/stocks/${id}`)
