@@ -18,9 +18,18 @@ import {
 } from "@heroicons/react/24/outline"
 import profile1 from "../assets/profile1.png"
 
+// const [profilePic, setProfilePic] = useState()
+
 const navigation = [
   { name: "Dashboard", href: "", current: true },
 ]
+
+// function getRandomPicture() {
+//     let picture = Math.floor([1 + Math.random() * ((userPicture.image.length) - 1)])
+//     let randomPic = userPicture.image[picture]
+//     setProfilePic(randomPic)
+//   }
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
@@ -59,6 +68,7 @@ const Dashboard = ({ user, handleLogOut }) => {
 
   useEffect(() => {
     callGetStocks()
+    // getRandomPicture()
   }, [])
 
   return user ? (
