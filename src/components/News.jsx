@@ -20,6 +20,7 @@ const News = () => {
       .request(options)
       .then(function (response) {
         setNews(response.data)
+        console.log(response.data);
       })
       .catch(function (error) {
         console.error(error)
@@ -60,8 +61,7 @@ const News = () => {
                           />
                           {news.source}{" "}
                           <span className="text-xs text-gray-400">
-                            {moment(Date(news.pubDate)).format("dddd, Do MMM YYYY, h:mm:ss A")}
-                            {/* {Date(news.pubDate.toLocaleString())} */}
+                            {moment((news.pubDate)).format("dddd, Do MMM YYYY, h:mm:ss A")}
                           </span>
                         </a>
                       </h3>
