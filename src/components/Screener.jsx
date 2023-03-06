@@ -12,7 +12,7 @@ import {
 
 const actions = [
   {
-    icon: ClockIcon,
+    icon: BanknotesIcon,
     name: "Small Cap Gainers",
     description:
       "Small-cap stocks are shares of companies with total market capitalization in the range of about $300 million to $2 billion.",
@@ -23,6 +23,24 @@ const actions = [
   {
     icon: ClockIcon,
     name: "Most Active",
+    description:
+      "Stocks on an exchange that trade the highest volume of shares over a given period.",
+    href: "#",
+    iconForeground: "text-teal-700",
+    iconBackground: "bg-teal-50",
+  },
+  {
+    icon: BanknotesIcon,
+    name: "Day Losers",
+    description:
+      "Small-cap stocks are shares of companies with total market capitalization in the range of about $300 million to $2 billion.",
+    href: "#",
+    iconForeground: "text-teal-700",
+    iconBackground: "bg-teal-50",
+  },
+  {
+    icon: ClockIcon,
+    name: "Day Losers",
     description:
       "Stocks on an exchange that trade the highest volume of shares over a given period.",
     href: "#",
