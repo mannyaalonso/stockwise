@@ -5,22 +5,15 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete"
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid"
 import data from '../data/data'
 import Watchlist from "../components/Watchlist"
-import Screener from "../components/Screener"
 import News from "../components/News"
 import { CheckWatchlist } from "../services/PostServices"
 import { PostStock } from "../services/PostServices"
 import { GetAllStocks } from "../services/PostServices"
 import { DestroyStock } from "../services/PostServices"
 import FourOhFour from "./404"
+import Profile from "../components/Profile"
 import {
-  AcademicCapIcon,
-  BanknotesIcon,
   Bars3Icon,
-  BellIcon,
-  CheckBadgeIcon,
-  ClockIcon,
-  ReceiptRefundIcon,
-  UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline"
 import profile1 from "../assets/profile1.png"
@@ -35,11 +28,12 @@ function classNames(...classes) {
 
 const Dashboard = ({ user, handleLogOut }) => {
   const [watchlist, setWatchlist] = useState([])
+  const [toggle, setToggle] = useState(true)
 
-  const userNavigation = [{ name: "Sign out", href: "#" }]
+  const userNavigation = [{ name: "Sign out"}]
 
   const handleOnSelect = async (item) => {
-    await PostStock(item.ticker)
+    await PostStock(item)
     callGetStocks()
   }
 
@@ -186,7 +180,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                         />
                       ) : (
                         <Bars3Icon
-                          className="block h-6 w-6"
+                          className="block h-6 w-6 text-white"
                           aria-hidden="true"
                         />
                       )}
@@ -331,17 +325,17 @@ const Dashboard = ({ user, handleLogOut }) => {
                               {user.name}
                             </p>
                             <p className="text-sm font-medium text-gray-600">
-                              {user.role}
+                              {user.email}
                             </p>
                           </div>
                         </div>
                         <div className="mt-5 flex justify-center sm:mt-0">
-                          <a
-                            href="#"
+                          <button
+                            onClick={() => setToggle(!toggle)}
                             className="flex items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                           >
                             View profile
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -358,11 +352,12 @@ const Dashboard = ({ user, handleLogOut }) => {
                     </div> */}
                   </div>
                 </section>
-                <Watchlist
-                  watchlist={watchlist}
-                  handleStockDelete={handleStockDelete}
-                />
-                <Screener />
+                {toggle ? (
+                  <Watchlist
+                    watchlist={watchlist}
+                    handleStockDelete={handleStockDelete}
+                  />
+                ) : <Profile user={user}/>}
               </div>
 
               {/* Right column */}

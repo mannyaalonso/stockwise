@@ -1,20 +1,19 @@
 import Client from './api'
 
 export const CheckWatchlist = async () => {
-    try {
-        const res = await Client.get(
-            `/api/watchlists/${localStorage.getItem('userId')}`
-        )
-        if (res.data == '') {
-            const res = await Client.post(
-                `/api/watchlists/${localStorage.getItem('userId')}`
-            )
-            localStorage.setItem('watchlistId', res.data.id)
-        } else {
-            localStorage.setItem('watchlistId', res.data.id)
+  try {
+    const res = await Client.get(
+      `/api/watchlists/${localStorage.getItem("userId")}`
+    )
+    if (res.data == "") {
+      const res = await Client.post(
+        `/api/watchlists/${localStorage.getItem("userId")}`, {
+          name: "Watchlist"
         }
-    } catch (error) {
-        console.log(error)
+      )
+      localStorage.setItem("watchlistId", res.data.id)
+    } else {
+      localStorage.setItem("watchlistId", res.data.id)
     }
 }
 
