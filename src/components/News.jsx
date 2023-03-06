@@ -59,7 +59,7 @@ const News = () => {
                           />
                           {news.source}{" "}
                           <span className="text-xs text-gray-400">
-                            {news.pubDate.substring(0, 10)}
+                            {Date(news.pubDate.toLocaleString())}
                           </span>
                         </a>
                       </h3>
