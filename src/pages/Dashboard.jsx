@@ -11,6 +11,7 @@ import { PostStock } from "../services/PostServices"
 import { GetAllStocks } from "../services/PostServices"
 import { DestroyStock } from "../services/PostServices"
 import FourOhFour from "./404"
+import Profile from "../components/Profile"
 import {
   Bars3Icon,
   XMarkIcon,
@@ -324,7 +325,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                               {user.name}
                             </p>
                             <p className="text-sm font-medium text-gray-600">
-                              {user.role}
+                              {user.email}
                             </p>
                           </div>
                         </div>
@@ -356,7 +357,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                     watchlist={watchlist}
                     handleStockDelete={handleStockDelete}
                   />
-                ) : null}
+                ) : <Profile user={user}/>}
               </div>
 
               {/* Right column */}
