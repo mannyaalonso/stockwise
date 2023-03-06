@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import moment from 'moment'
 
 
 const News = () => {
@@ -59,7 +60,8 @@ const News = () => {
                           />
                           {news.source}{" "}
                           <span className="text-xs text-gray-400">
-                            {news.pubDate.substring(0, 10)}
+                            {moment(Date(news.pubDate)).format("dddd, Do MMM YYYY, h:mm:ss A")}
+                            {/* {Date(news.pubDate.toLocaleString())} */}
                           </span>
                         </a>
                       </h3>
