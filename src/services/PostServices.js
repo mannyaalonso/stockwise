@@ -15,6 +15,9 @@ export const CheckWatchlist = async () => {
     } else {
       localStorage.setItem("watchlistId", res.data.id)
     }
+  } catch (err) {
+      console.log(err)
+    }
 }
 
 export const PostStock = async (stock) => {
