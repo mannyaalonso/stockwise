@@ -7,7 +7,9 @@ export const CheckWatchlist = async () => {
     )
     if (res.data == "") {
       const res = await Client.post(
-        `/api/watchlists/${localStorage.getItem("userId")}`
+        `/api/watchlists/${localStorage.getItem("userId")}`, {
+          name: "Watchlist"
+        }
       )
       localStorage.setItem("watchlistId", res.data.id)
     } else {
