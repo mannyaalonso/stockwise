@@ -29,7 +29,6 @@ function classNames(...classes) {
 const Dashboard = ({ user, handleLogOut }) => {
   const [watchlist, setWatchlist] = useState([])
   const [toggle, setToggle] = useState(true)
-
   const userNavigation = [{ name: "Sign out"}]
 
   const handleOnSelect = async (item) => {
@@ -334,7 +333,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                             onClick={() => setToggle(!toggle)}
                             className="flex items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                           >
-                            View profile
+                            {toggle ? "View Profile" : "Go back"}
                           </button>
                         </div>
                       </div>
