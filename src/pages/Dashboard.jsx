@@ -17,6 +17,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline"
 import profile1 from "../assets/profile1.png"
+import Trending from "../components/Trending"
 
 const navigation = [
   { name: "Dashboard", href: "", current: true },
@@ -352,11 +353,16 @@ const Dashboard = ({ user, handleLogOut }) => {
                   </div>
                 </section>
                 {toggle ? (
-                  <Watchlist
-                    watchlist={watchlist}
-                    handleStockDelete={handleStockDelete}
-                  />
-                ) : <Profile user={user}/>}
+                  <>
+                    <Watchlist
+                      watchlist={watchlist}
+                      handleStockDelete={handleStockDelete}
+                    />
+                    <Trending />
+                  </>
+                ) : (
+                  <Profile user={user} />
+                )}
               </div>
 
               {/* Right column */}
