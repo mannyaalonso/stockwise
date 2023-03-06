@@ -20,7 +20,6 @@ const News = () => {
       .request(options)
       .then(function (response) {
         setNews(response.data)
-        console.log(response.data);
       })
       .catch(function (error) {
         console.error(error)
@@ -44,7 +43,7 @@ const News = () => {
             </h2>
             <div className="mt-6 flow-root">
               <ul className="-my-5 divide-y divide-gray-200">
-                {news.sort((b,a) => new Date(...a.pubDate.split('/').reverse()) - new Date(...b.pubDate.split('/').reverse())).map((news) => (
+                {news.sort((b,a) => new Date(...a.pubDate.split('/')) - new Date(...b.pubDate.split('/'))).map((news) => (
                   <li key={news.title} className="py-5">
                     <div className="relative focus-within:ring-2 focus-within:ring-cyan-500">
                       <h3 className="text-sm font-semibold text-gray-800">
@@ -61,7 +60,7 @@ const News = () => {
                           />
                           {news.source}{" "}
                           <span className="text-xs text-gray-400">
-                            {moment((news.pubDate)).format("dddd, Do MMM YYYY, h:mm:ss A")}
+                            {moment((news.pubDate)).format("dddd, Do MMM YYYY, h:mm A")}
                           </span>
                         </a>
                       </h3>
