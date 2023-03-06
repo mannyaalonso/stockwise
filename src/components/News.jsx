@@ -44,7 +44,7 @@ const News = () => {
             </h2>
             <div className="mt-6 flow-root">
               <ul className="-my-5 divide-y divide-gray-200">
-                {news.map((news) => (
+                {news.sort((b,a) => new Date(...a.pubDate.split('/').reverse()) - new Date(...b.pubDate.split('/').reverse())).map((news) => (
                   <li key={news.title} className="py-5">
                     <div className="relative focus-within:ring-2 focus-within:ring-cyan-500">
                       <h3 className="text-sm font-semibold text-gray-800">
