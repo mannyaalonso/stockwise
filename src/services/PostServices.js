@@ -17,6 +17,7 @@ export const CheckWatchlist = async () => {
 }
 
 export const PostStock = async (stock) => {
+  console.log("STOCK", stock)
   try {
     const res = await Client.post(
       `/api/stocks/${localStorage.getItem("watchlistId")}`,

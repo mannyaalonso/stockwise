@@ -37,15 +37,13 @@ const Screener = () => {
 
   return (
     <section aria-labelledby="quick-links-title">
-      <div
-        onClick={() => setToggle(!toggle)}
-        className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0"
-      >
+      <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0 mb-4">
         <h2 className="sr-only" id="quick-links-title">
           Quick links
         </h2>
         {actions.map((action, actionIdx) => (
           <div
+            onClick={() => setToggle(!toggle)}
             key={action.name}
             className={classNames(
               actionIdx === 0
