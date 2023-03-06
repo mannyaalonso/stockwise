@@ -1,4 +1,4 @@
-import Client from "./api"
+import Client from './api'
 
 export const CheckWatchlist = async () => {
   try {
@@ -15,39 +15,36 @@ export const CheckWatchlist = async () => {
     } else {
       localStorage.setItem("watchlistId", res.data.id)
     }
-  } catch (error) {
-    console.log(error)
-  }
 }
 
 export const PostStock = async (stock) => {
-  try {
-    const res = await Client.post(
-      `/api/stocks/${localStorage.getItem("watchlistId")}`,
-      { name: stock.name, ticker: stock.ticker }
-    )
-    return res.data
-  } catch (error) {
-    console.log(error)
-  }
+    try {
+        const res = await Client.post(
+            `/api/stocks/${localStorage.getItem('watchlistId')}/${stock.name}}`,
+            { name: stock }
+        )
+        return res.data
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const GetAllStocks = async () => {
-  try {
-    const res = await Client.get(
-      `/api/stocks/${localStorage.getItem("watchlistId")}`
-    )
-    return res.data
-  } catch (error) {
-    console.log(error)
-  }
+    try {
+        const res = await Client.get(
+            `/api/stocks/${localStorage.getItem('watchlistId')}`
+        )
+        return res.data
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const DestroyStock = async (id) => {
-  try {
-    const res = await Client.delete(`/api/stocks/${id}`)
-    return res.data
-  } catch (error) {
-    console.log(error)
-  }
+    try {
+        const res = await Client.delete(`/api/stocks/${id}`)
+        return res.data
+    } catch (error) {
+        console.log(error)
+    }
 }
