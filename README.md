@@ -73,8 +73,8 @@
 
 ### **_Future Features_**
 
--   Dark Mode
--   ChatGPT Implementation
+-   [ ] Dark Mode
+-   [x] ChatGPT Implementation
 
 ---
 
