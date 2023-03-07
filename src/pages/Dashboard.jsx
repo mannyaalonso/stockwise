@@ -23,6 +23,7 @@ import profile4 from "../assets/profile4.png"
 import profile5 from "../assets/profile5.png"
 import profile6 from "../assets/profile6.png"
 import Trending from "../components/Trending"
+import ChatGPT from "../components/ChatGPT"
 
 const navigation = [
   { name: "Dashboard", href: "", current: true },
@@ -380,6 +381,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                       handleStockDelete={handleStockDelete}
                     />
                     <Trending />
+                    <ChatGPT />
                   </>
                 ) : (
                   <Profile user={user} />
