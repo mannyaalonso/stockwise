@@ -69,7 +69,7 @@ const ChatGPT = () => {
               onSearch={handleOnSearch}
               formatResult={formatResult}
               styling={{ zIndex: 4 }}
-              placeholder="Search stock for ChatGPT summary"
+              placeholder="Search a stock"
             />
             {!isLoading ? (
               <ul className="my-5 divide-y divide-gray-200">{result}</ul>
