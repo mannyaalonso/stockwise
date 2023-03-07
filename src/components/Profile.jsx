@@ -1,20 +1,23 @@
-import { ExclamationCircleIcon } from "@heroicons/react/20/solid"
 import { useState } from "react"
+import { UpdateStock } from "../services/PostServices"
 
 const Profile = ({ user }) => {
   const initialState = {
-    oldPassword: '',
-    newPassword: ''
+    oldPassword: "",
+    newPassword: "",
   }
   const [formState, setFormState] = useState(initialState)
+  const [message, setMessage] = useState("")
 
   const handleChange = (e) => {
-    setFormState({...formState, [e.target.name]: e.target.value})
+    setFormState({ ...formState, [e.target.name]: e.target.value })
     console.log(formState)
   }
 
   const handleUpdate = async () => {
-
+    const res = await UpdateStock(formState)
+    setMessage(res.status)
+    setFormState(initialState)
   }
 
   return (
@@ -50,6 +53,7 @@ const Profile = ({ user }) => {
                 <div className="mt-2">
                   <input
                     onChange={handleChange}
+                    value={formState.oldPassword}
                     type="text"
                     name="oldPassword"
                     id="oldPassword"
@@ -72,6 +76,7 @@ const Profile = ({ user }) => {
                 <div className="mt-2">
                   <input
                     onChange={handleChange}
+                    value={formState.newPassword}
                     type="text"
                     name="newPassword"
                     id="newPassword"
@@ -99,6 +104,8 @@ const Profile = ({ user }) => {
 
 export default Profile
 
-{/* <p className="mt-2 text-sm text-red-600" id="email-error">
+{
+  /* <p className="mt-2 text-sm text-red-600" id="email-error">
                   Not a valid email address.
-                </p> */}
+                </p> */
+}
