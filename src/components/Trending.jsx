@@ -28,8 +28,8 @@ const Trending = () => {
                 Top 5 trending stocks amongst users
               </span>
             </h2>
-            <div className="mt-6 flow-root justify-center items-center">
-              <ul className="-my-5 flex">
+            <div className="mt-6 flow-root justify-center items-center ">
+              <ul className="-my-5 flex overflow-scroll scrollbar-hide">
                 {trending.map((stock) => (
                   <div key={stock}>
                     {stock !== "undefined" ? (
