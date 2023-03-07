@@ -63,24 +63,24 @@ const Dashboard = ({ user, handleLogOut }) => {
     setWatchlist(data)
   }
 
-  // const chooseProfilePic = [
-  //   profile1,
-  //   profile2,
-  //   profile3,
-  //   profile4,
-  //   profile5,
-  //   profile6
-  // ]
-  // let [profilePic, setProfilePic] = useState()
+  const chooseProfilePic = [
+    profile1,
+    profile2,
+    profile3,
+    profile4,
+    profile5,
+    profile6
+  ]
+  let [profilePic, setProfilePic] = useState()
   
-  // function getRandomPicture() {
-  //     let picture = Math.floor([1 + Math.random() * ((6) - 1)])
-  //      setProfilePic = chooseProfilePic[picture]   
-  //   }
+  function getRandomPicture() {
+      let picture = Math.floor([1 + Math.random() * ((6) - 1)])
+       setProfilePic(chooseProfilePic[picture])
+    }
 
   useEffect(() => {
     callGetStocks()
-    // getRandomPicture()
+    getRandomPicture()
   }, [])
 
   return user ? (
@@ -111,7 +111,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"
-                            src={profile1}
+                            src={profilePic}
                             alt=""
                           />
                         </Menu.Button>
@@ -270,7 +270,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                             <div className="flex-shrink-0">
                               <img
                                 className="h-10 w-10 rounded-full"
-                                src={profile1}
+                                src={profilePic}
                                 alt=""
                               />
                             </div>
@@ -334,7 +334,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                           <div className="flex-shrink-0">
                             <img
                               className="mx-auto h-20 w-20 rounded-full"
-                              src={profile1}
+                              src={profilePic}
                               alt=""
                             />
                           </div>
