@@ -58,7 +58,7 @@ const ChatGPT = () => {
           >
             Chat GPT
             <span className="text-xs text-gray-400">
-              Click 'Generate' to trigger a summary
+              Search a stock to trigger a summary
             </span>
           </h2>
           <div className="mt-6 flow-root">
