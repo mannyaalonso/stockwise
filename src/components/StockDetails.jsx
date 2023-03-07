@@ -32,7 +32,7 @@ const chartOptions = {
   },
   plugins: {
     legend: {
-      display: false,
+      display: true,
     },
     title: {
       display: false,
