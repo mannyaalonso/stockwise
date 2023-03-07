@@ -17,20 +17,16 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline"
 import profile1 from "../assets/profile1.png"
+import profile2 from "../assets/profile2.png"
+import profile3 from "../assets/profile3.png"
+import profile4 from "../assets/profile4.png"
+import profile5 from "../assets/profile5.png"
+import profile6 from "../assets/profile6.png"
 import Trending from "../components/Trending"
-
-// const [profilePic, setProfilePic] = useState()
 
 const navigation = [
   { name: "Dashboard", href: "", current: true },
 ]
-
-// function getRandomPicture() {
-//     let picture = Math.floor([1 + Math.random() * ((userPicture.image.length) - 1)])
-//     let randomPic = userPicture.image[picture]
-//     setProfilePic(randomPic)
-//   }
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
@@ -66,6 +62,21 @@ const Dashboard = ({ user, handleLogOut }) => {
     const data = await GetAllStocks()
     setWatchlist(data)
   }
+
+  // const chooseProfilePic = [
+  //   profile1,
+  //   profile2,
+  //   profile3,
+  //   profile4,
+  //   profile5,
+  //   profile6
+  // ]
+  // let [profilePic, setProfilePic] = useState()
+  
+  // function getRandomPicture() {
+  //     let picture = Math.floor([1 + Math.random() * ((6) - 1)])
+  //      setProfilePic = chooseProfilePic[picture]   
+  //   }
 
   useEffect(() => {
     callGetStocks()
