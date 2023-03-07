@@ -7,7 +7,6 @@ import SignIn from './pages/SignIn'
 import Home from './pages/Home'
 import FourOhFour from './pages/404'
 import { useNavigate } from 'react-router-dom'
-import Icon from './pages/Icon'
 
 function App() {
     const [user, setUser] = useState(null)
@@ -44,7 +43,6 @@ function App() {
                     }
                 />
                 <Route path='*' element={<FourOhFour />} />
-                <Route path='/icon' element={<Icon />} />
             </Routes>
         </main>
     )
