@@ -15,7 +15,7 @@ function App() {
     const handleLogOut = () => {
         setUser(null)
         localStorage.clear()
-        navigate('/signin')
+        navigate('/')
     }
 
     const checkToken = async () => {

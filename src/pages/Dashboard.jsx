@@ -279,7 +279,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                               <button
                                 key={item.name}
                                 onClick={handleLogOut}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-black hover:text-gray-800"
                               >
                                 {item.name}
                               </button>

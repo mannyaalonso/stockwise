@@ -33,6 +33,21 @@ export const PostStock = async (stock) => {
     }
 }
 
+export const UpdateStock = async (formState) => {
+  try {
+    const res = await Client.put(
+      `/auth/update/${localStorage.getItem("userId")}`,
+      {
+        oldPassword: formState.oldPassword,
+        newPassword: formState.newPassword,
+      }
+    )
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export const GetAllStocks = async () => {
     try {
         const res = await Client.get(

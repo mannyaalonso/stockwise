@@ -14,8 +14,6 @@ const Trending = () => {
     getTrendingStocks()
   },[])
 
-  console.log(trending)
-
   return trending && (
     <section aria-labelledby="recent-hires-title">
       <div className="overflow-hidden rounded-lg bg-white shadow">
