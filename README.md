@@ -25,7 +25,7 @@
 
 ### **_Description_**
 
-#### This app is a simple yet sleek stock tracker that will allow our users to track certain company stocks by creating a watch-list for them. Top 5 trending stocks will be displayed based on all users stocks tracking. Guests will have the ability to preview and test the app without having to log in or provide sensitive information. Our users will be able to access recent new articles and see the latest information about upcoming stock changes. Those articles time and date will be displayed to the user so they can see how recent the articles displayed were published.
+#### This app is a simple yet sleek stock tracker that will allow our users to track certain company stocks by creating a watch-list for them. Top 5 trending stocks will be displayed based on all users stocks tracking. Guests will have the ability to preview and test the app without having to log in or provide sensitive information. Our users will be able to access recent new articles and see the latest information about upcoming stock changes. Those articles time and date will be displayed to the user so they can see how recent the articles displayed were published. In the newest build, users can now talk ask ChatGPT about their favorite companies.
 
 ---
 
