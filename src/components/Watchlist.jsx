@@ -2,7 +2,7 @@ import Stock from "./Stock"
 
 const Watchlist = ({ watchlist, handleStockDelete }) => {
 
-  return watchlist?.length > 0 && (
+  return watchlist && (
     <section aria-labelledby="recent-hires-title">
       <div className="overflow-hidden rounded-lg bg-white shadow">
         <div className="p-6">
