@@ -28,13 +28,17 @@ const Trending = () => {
                 Top 5 trending stocks amongst users
               </span>
             </h2>
-            <div className="mt-6 flow-root">
-              <ul className="-my-5 divide-y divide-gray-200">
+            <div className="mt-6 flow-root justify-center items-center">
+              <ul className="-my-5 flex">
                 {trending.map((stock) => (
-                  <div className="w-12 bg-[#64fcd9] p-1 rounded-full flex row-span-full justify-center items-center m-2 cursor-pointer">
-                    <p className="truncate text-[.6rem] text-[#3b927e] font-bold">
-                      {stock}
-                    </p>
+                  <div key={stock}>
+                    {stock !== "undefined" ? (
+                      <div className="w-24 bg-[#64fcd9] p-1 rounded-full flex row-span-full justify-center items-center m-2 cursor-pointer">
+                        <p className="truncate text-[.6rem] text-[#3b927e] font-bold">
+                          {stock}
+                        </p>
+                      </div>
+                    ) : null}
                   </div>
                 ))}
               </ul>
