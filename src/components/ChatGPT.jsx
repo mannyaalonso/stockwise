@@ -6,7 +6,7 @@ import data from "../data/data"
 
 const ChatGPT = () => {
     const [result, setResult] = useState("")
-      const [isLoading, setIsLoading] = useState(true)
+      const [isLoading, setIsLoading] = useState(false)
 
     const configuration = new Configuration({
       apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -44,7 +44,6 @@ const ChatGPT = () => {
     }
 
      const handleOnSearch = (string, results) => {
-      setIsLoading(true)
        setResult("")
      }
 
