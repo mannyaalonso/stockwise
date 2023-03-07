@@ -12,6 +12,7 @@ import { GetAllStocks } from "../services/PostServices"
 import { DestroyStock } from "../services/PostServices"
 import FourOhFour from "./404"
 import Profile from "../components/Profile"
+import { Triangle } from "react-loader-spinner"
 import {
   Bars3Icon,
   XMarkIcon,
@@ -408,7 +409,17 @@ const Dashboard = ({ user, handleLogOut }) => {
       </div>
     </>
   ) : (
-    <FourOhFour />
+    <div className="flex items-center justify-center mt-3 h-screen">
+      <Triangle
+        height="40"
+        width="40"
+        color="#4abea3"
+        ariaLabel="triangle-loading"
+        wrapperStyle={{}}
+        wrapperClassName=""
+        visible={true}
+      />
+    </div>
   )
 }
 
