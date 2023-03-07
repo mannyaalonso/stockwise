@@ -17,6 +17,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline"
 import profile1 from "../assets/profile1.png"
+import Trending from "../components/Trending"
 
 const navigation = [
   { name: "Dashboard", href: "", current: true },
@@ -278,7 +279,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                               <button
                                 key={item.name}
                                 onClick={handleLogOut}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-black hover:text-gray-800"
                               >
                                 {item.name}
                               </button>
@@ -352,11 +353,16 @@ const Dashboard = ({ user, handleLogOut }) => {
                   </div>
                 </section>
                 {toggle ? (
-                  <Watchlist
-                    watchlist={watchlist}
-                    handleStockDelete={handleStockDelete}
-                  />
-                ) : <Profile user={user}/>}
+                  <>
+                    <Watchlist
+                      watchlist={watchlist}
+                      handleStockDelete={handleStockDelete}
+                    />
+                    <Trending />
+                  </>
+                ) : (
+                  <Profile user={user} />
+                )}
               </div>
 
               {/* Right column */}
