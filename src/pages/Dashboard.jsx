@@ -243,10 +243,10 @@ const Dashboard = ({ user, handleLogOut }) => {
                         <div className="pt-3 pb-2">
                           <div className="flex items-center justify-between px-4">
                             <div>
-                              <AiOutlineStock className="mx-auto h-12 w-auto  text-cyan-500 rounded-full p-2" />
+                              <AiOutlineStock className="mx-auto h-12 w-auto  text-[#45b399] rounded-full p-2" />
                             </div>
                             <div className="-mr-2">
-                              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500">
+                              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#64fcd9]">
                                 <span className="sr-only">Close menu</span>
                                 <XMarkIcon
                                   className="h-6 w-6"
