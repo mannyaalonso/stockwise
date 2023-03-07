@@ -12,8 +12,10 @@ export default function SignIn({ setUser }) {
     password: "",
   }
   const [formState, setFormState] = useState(intialState)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
+    setError('')
     setFormState({ ...formState, [e.target.id]: e.target.value })
   }
 
@@ -25,22 +27,34 @@ export default function SignIn({ setUser }) {
           email: "guest@stockwise.com",
           password: "guest",
         })
-        setUser(payload)
-        navigate("/dashboard")
+        if (JSON.stringify(payload.code) === '"ERR_BAD_REQUEST"') {
+          setError("Looks like your login details are incorrect")
+          navigate("/signin")
+        } else {
+          setUser(payload)
+          navigate("/dashboard")
+        }
       } catch (err) {
         console.log(err)
       }
     } else if (formState.email && formState.password) {
       try {
         const payload = await SignInUser(formState)
-        setUser(payload)
-        navigate("/dashboard")
+        if (JSON.stringify(payload.code) === '"ERR_BAD_REQUEST"') {
+          setError("Looks like your login details are incorrect")
+          navigate("/signin")
+        } else {
+          setUser(payload)
+          navigate("/dashboard")
+        }
       } catch (err) {
         console.log(err)
       }
     }
     setFormState({ email: "", password: "" })
   }
+
+  
 
   return (
     <>
@@ -114,6 +128,11 @@ export default function SignIn({ setUser }) {
                 </span>
                 Sign in as Guest
               </button>
+              {error !== "" ? (
+                <div className="flex justify-center items-center mt-2 text-red-500 text-sm">
+                  <p className="">{error}</p>
+                </div>
+              ) : null}
             </div>
           </form>
           <div className="mt-10 flex justify-center whitespace-pre">

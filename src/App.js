@@ -23,10 +23,6 @@ function App() {
         setUser(user)
     }
 
-    const guestSingIn = async () => {
-
-    }
-
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token) {
@@ -37,9 +33,9 @@ function App() {
     return (
         <main>
             <Routes>
-                <Route path='/' element={<Home guestSingIn={guestSingIn} />} />
-                <Route path='/signin' element={<SignIn setUser={setUser} guestSingIn={guestSingIn} />} />
-                <Route path='/registration' element={<Registration guestSingIn={guestSingIn} />}  />
+                <Route path='/' element={<Home />} />
+                <Route path='/signin' element={<SignIn setUser={setUser} />} />
+                <Route path='/registration' element={<Registration />}  />
                 <Route
                     path='/dashboard'
                     element={
