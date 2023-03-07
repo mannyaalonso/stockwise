@@ -1,8 +1,6 @@
 import { GetTrendingStocks } from '../services/PostServices'
 import { useState, useEffect } from 'react'
 
-
-
 const Trending = () => {
   const [trending, setTrending] = useState()
 
@@ -33,14 +31,9 @@ const Trending = () => {
           </h2>
           <div className="mt-6 flow-root">
             <ul className="-my-5 divide-y divide-gray-200">
-              Hello
-              {/* {watchlist.map((stock) => (
-                <Stock
-                  key={stock.id}
-                  stock={stock}
-                  handleStockDelete={handleStockDelete}
-                />
-              ))} */}
+              {trending.map((stock) => (
+                <p key={stock}>{stock}</p>
+              ))}
             </ul>
           </div>
         </div>
