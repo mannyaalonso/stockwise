@@ -54,6 +54,8 @@
 
 ### **_Getting Started_**
 
+##### The Deployed Website can be viewed [here](https://main--eclectic-klepon-901b3e.netlify.app/).
+
 ##### The Entity Relationship Diagram can be viewed [here](https://lucid.app/lucidchart/315462c6-0466-440d-907f-cd580dc1488d/edit?invitationId=inv_20a33e59-ae06-4caf-9481-d88ff10fccb3).
 
 ##### A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/invite/b/06fLeV6s/ATTI27374953c40245948e35c36d9cb889a92573CD62/stocks).
