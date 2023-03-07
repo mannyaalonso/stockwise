@@ -31,7 +31,7 @@ const Trending = () => {
             <div className="mt-6 flow-root">
               <ul className="-my-5 divide-y divide-gray-200">
                 {trending.map((stock) => (
-                  <div className="w-12 bg-[#64fcd9] p-1 rounded-full flex row-span-full justify-center items-center m-2 cursor-pointer">
+                  <div key={stock} className="w-12 bg-[#64fcd9] p-1 rounded-full flex row-span-full justify-center items-center m-2 cursor-pointer">
                     <p className="truncate text-[.6rem] text-[#3b927e] font-bold">
                       {stock}
                     </p>
