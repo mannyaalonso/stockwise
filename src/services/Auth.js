@@ -8,7 +8,7 @@ export const SignInUser = async (data) => {
     localStorage.setItem("email", res.data.user.email)
     return res.data.user
   } catch (error) {
-    console.log(error)
+    return error
   }
 }
 
@@ -17,7 +17,7 @@ export const RegisterUser = async (data) => {
     const res = await Client.post("/auth/register", data)
     return res.data
   } catch (error) {
-    console.log(error)
+    return error
   }
 }
 
@@ -27,6 +27,6 @@ export const CheckSession = async () => {
     const res = await Client.get("/auth/session")
     return res.data
   } catch (error) {
-    console.log(error)
+    return error
   }
 }
