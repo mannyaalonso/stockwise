@@ -92,6 +92,14 @@ export default function SignIn({ setUser }) {
               </button>
             </div>
           </form>
+          <div className="mt-10 flex justify-center">
+            <button
+              onClick={() => navigate("/registration")}
+              className="text-sm font-semibold leading-7 text-black"
+            >
+              <span aria-hidden="true">&larr;</span> Register
+            </button>
+          </div>
         </div>
       </div>
     </>
