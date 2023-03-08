@@ -1,19 +1,15 @@
-import { Fragment, useState, useEffect } from "react"
-import { AiOutlineStock } from "react-icons/ai"
-import { Menu, Popover, Transition } from "@headlessui/react"
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import { ReactSearchAutocomplete } from "react-search-autocomplete"
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid"
-import data from "../data/data"
-import Watchlist from "../components/Watchlist"
-import News from "../components/News"
+import { Menu, Popover, Transition } from "@headlessui/react"
 import { CheckWatchlist } from "../services/PostServices"
-import { PostStock } from "../services/PostServices"
-import { GetAllStocks } from "../services/PostServices"
 import { DestroyStock } from "../services/PostServices"
-import FourOhFour from "./404"
-import Profile from "../components/Profile"
+import { GetAllStocks } from "../services/PostServices"
+import { Fragment, useState, useEffect } from "react"
+import { PostStock } from "../services/PostServices"
+import Watchlist from "../components/Watchlist"
+import { AiOutlineStock } from "react-icons/ai"
 import { Triangle } from "react-loader-spinner"
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import profile1 from "../assets/profile1.png"
 import profile2 from "../assets/profile2.png"
 import profile3 from "../assets/profile3.png"
@@ -22,6 +18,10 @@ import profile5 from "../assets/profile5.png"
 import profile6 from "../assets/profile6.png"
 import Trending from "../components/Trending"
 import ChatGPT from "../components/ChatGPT"
+import Profile from "../components/Profile"
+import News from "../components/News"
+import data from "../data/data"
+import Switcher from "../components/Switcher"
 
 const navigation = [{ name: "Dashboard", href: "", current: true }]
 
@@ -82,7 +82,7 @@ const Dashboard = ({ user, handleLogOut }) => {
 
   return user ? (
     <>
-      <div className="min-h-full">
+      <div className="min-h-full dark:bg-slate-900">
         <Popover
           as="header"
           className="bg-gradient-to-r from-[#4abea3] to-[#64fcd9] pb-24"
@@ -95,7 +95,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                   <div className="absolute left-0 flex-shrink-0 py-5 lg:static">
                     <a href="#">
                       <span className="sr-only">Stockwise</span>
-                      <AiOutlineStock className="mx-auto h-12 w-auto  text-white rounded-full p-2" />
+                      <AiOutlineStock className="mx-auto h-12 w-auto  text-white dark:text-slate-900 rounded-full p-2" />
                     </a>
                   </div>
 
@@ -173,7 +173,6 @@ const Dashboard = ({ user, handleLogOut }) => {
                               />
                             </div>
                             <ReactSearchAutocomplete
-                              className=""
                               items={data}
                               onSelect={handleOnSelect}
                               formatResult={formatResult}
@@ -200,7 +199,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                         />
                       ) : (
                         <Bars3Icon
-                          className="block h-6 w-6 text-white"
+                          className="block h-6 w-6 text-white dark:text-slate-900"
                           aria-hidden="true"
                         />
                       )}
@@ -236,14 +235,14 @@ const Dashboard = ({ user, handleLogOut }) => {
                       focus
                       className="absolute inset-x-0 top-0 z-30 mx-auto w-full max-w-3xl origin-top transform p-2 transition"
                     >
-                      <div className="divide-y divide-gray-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                      <div className="divide-y divide-gray-200 rounded-lg bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5">
                         <div className="pt-3 pb-2">
                           <div className="flex items-center justify-between px-4">
                             <div>
                               <AiOutlineStock className="mx-auto h-12 w-auto  text-[#4abea3] rounded-full p-2" />
                             </div>
                             <div className="-mr-2">
-                              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#4abea3]">
+                              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white dark:bg-slate-700 dark:text-slate-100 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#4abea3]">
                                 <span className="sr-only">Close menu</span>
                                 <XMarkIcon
                                   className="h-6 w-6"
@@ -256,7 +255,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                             {navigation.map((item) => (
                               <button
                                 key={item.name}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 dark:text-slate-100 hover:bg-gray-100 hover:text-gray-800"
                               >
                                 {item.name}
                               </button>
@@ -273,7 +272,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                               />
                             </div>
                             <div className="ml-3 min-w-0 flex-1">
-                              <div className="truncate text-base font-medium text-gray-800">
+                              <div className="truncate text-base font-medium text-gray-800 dark:text-slate-100">
                                 {user.name}
                               </div>
                               <div className="truncate text-sm font-medium text-gray-500">
@@ -282,7 +281,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                             </div>
                             <button
                               type="button"
-                              className="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                              className="ml-auto flex-shrink-0 rounded-full bg-white dark:bg-slate-800 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                             >
                               <span className="sr-only">
                                 View notifications
@@ -298,7 +297,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                               <button
                                 key={item.name}
                                 onClick={handleLogOut}
-                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-black hover:text-white"
+                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 dark:text-slate-100 hover:bg-black hover:text-white"
                               >
                                 {item.name}
                               </button>
@@ -322,11 +321,11 @@ const Dashboard = ({ user, handleLogOut }) => {
               <div className="grid grid-cols-1 gap-4 lg:col-span-2">
                 {/* Welcome panel */}
                 <section aria-labelledby="profile-overview-title">
-                  <div className="overflow-hidden rounded-lg bg-white shadow">
+                  <div className="overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow">
                     <h2 className="sr-only" id="profile-overview-title">
                       Profile Overview
                     </h2>
-                    <div className="bg-white p-6">
+                    <div className="bg-white dark:bg-slate-800 p-6">
                       <div className="sm:flex sm:items-center sm:justify-between">
                         <div className="sm:flex sm:space-x-5">
                           <div className="flex-shrink-0">
@@ -337,13 +336,13 @@ const Dashboard = ({ user, handleLogOut }) => {
                             />
                           </div>
                           <div className="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
-                            <p className="text-sm font-medium text-gray-600">
+                            <p className="text-sm font-medium text-gray-600 dark:text-slate-200">
                               Welcome back,
                             </p>
-                            <p className="text-xl font-bold text-gray-900 sm:text-2xl">
+                            <p className="text-xl font-bold text-gray-900 dark:text-slate-100 sm:text-2xl">
                               {user.name}
                             </p>
-                            <p className="text-sm font-medium text-gray-600">
+                            <p className="text-sm font-medium text-gray-600 dark:text-slate-400">
                               {user.email}
                             </p>
                           </div>
@@ -351,10 +350,13 @@ const Dashboard = ({ user, handleLogOut }) => {
                         <div className="mt-5 flex justify-center sm:mt-0">
                           <button
                             onClick={() => setToggle(!toggle)}
-                            className="flex items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                            className="flex items-center justify-center rounded-md bg-white dark:bg-slate-700 px-3 py-2 text-sm font-semibold text-gray-900 dark:text-slate-100 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                           >
                             {toggle ? "View Profile" : "Go back"}
                           </button>
+                        </div>
+                        <div className="mt-5 flex justify-center sm:mt-0">
+                          <Switcher />
                         </div>
                       </div>
                     </div>
