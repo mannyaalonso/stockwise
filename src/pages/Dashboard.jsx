@@ -149,7 +149,7 @@ const Dashboard = ({ user, handleLogOut }) => {
                             <button
                               key={item.name}
                               className={classNames(
-                                item.current ? "text-white" : "text-cyan-100",
+                                item.current ? "text-white dark:text-slate-900" : "text-cyan-100",
                                 "rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10"
                               )}
                               aria-current={item.current ? "page" : undefined}
