@@ -14,7 +14,10 @@ function App() {
 
     const handleLogOut = () => {
         setUser(null)
-        localStorage.clear()
+        localStorage.removeItem('token')
+        localStorage.removeItem("userId")
+        localStorage.removeItem("email")
+        localStorage.removeItem("watchlistId")
         navigate('/')
     }
 

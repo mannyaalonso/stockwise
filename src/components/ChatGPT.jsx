@@ -43,7 +43,7 @@ const ChatGPT = () => {
       )
     }
 
-     const handleOnSearch = (string, results) => {
+     const handleOnSearch = () => {
        setResult("")
      }
 

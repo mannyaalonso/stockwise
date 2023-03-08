@@ -1,5 +1,6 @@
 import { LockClosedIcon } from "@heroicons/react/20/solid"
 import { AiOutlineStock } from "react-icons/ai"
+import { Triangle } from "react-loader-spinner"
 import { useNavigate } from "react-router-dom"
 import { SignInUser } from "../services/Auth"
 import { useState } from "react"
@@ -12,6 +13,7 @@ export default function SignIn({ setUser }) {
     password: "",
   }
   const [formState, setFormState] = useState(intialState)
+    const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
 
   const handleChange = (e) => {
@@ -21,6 +23,7 @@ export default function SignIn({ setUser }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
     if (e.target.name === 'guest') {
       try {
         const payload = await SignInUser({
@@ -52,6 +55,7 @@ export default function SignIn({ setUser }) {
       }
     }
     setFormState({ email: "", password: "" })
+    setIsLoading(false)
   }
 
   
@@ -81,7 +85,7 @@ export default function SignIn({ setUser }) {
                   onChange={handleChange}
                   autoComplete="email"
                   required
-                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 dark:text-slate-100 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Email address"
                 />
               </div>
@@ -97,7 +101,7 @@ export default function SignIn({ setUser }) {
                   onChange={handleChange}
                   autoComplete="current-password"
                   required
-                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 dark:text-slate-100 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Password"
                 />
               </div>
@@ -143,6 +147,17 @@ export default function SignIn({ setUser }) {
               <span aria-hidden="true">&larr;</span> Register
             </button>
           </div>
+          {isLoading ? 
+          <div className="flex items-center justify-center">
+          <Triangle
+          height="40"
+          width="40"
+          color="#4abea3"
+          ariaLabel="triangle-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        /> </div>: null}
         </div>
       </div>
     </>
