@@ -62,7 +62,7 @@ export default function SignIn({ setUser }) {
         <div className="w-full max-w-md space-y-8">
           <div>
             <AiOutlineStock className="mx-auto h-12 w-auto bg-gradient-to-r from-[#4abea3] to-[#64fcd9] text-white rounded-full p-2" />
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-slate-100">
               Sign in to Stockwise
             </h2>
           </div>
@@ -81,7 +81,7 @@ export default function SignIn({ setUser }) {
                   onChange={handleChange}
                   autoComplete="email"
                   required
-                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Email address"
                 />
               </div>
@@ -97,7 +97,7 @@ export default function SignIn({ setUser }) {
                   onChange={handleChange}
                   autoComplete="current-password"
                   required
-                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Password"
                 />
               </div>
@@ -138,7 +138,7 @@ export default function SignIn({ setUser }) {
           <div className="mt-10 flex justify-center whitespace-pre">
             <button
               onClick={() => navigate("/registration")}
-              className="text-sm font-semibold leading-7 text-black"
+              className="text-sm font-semibold leading-7 text-black dark:text-slate-100"
             >
               <span aria-hidden="true">&larr;</span> Register
             </button>
