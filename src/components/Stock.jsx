@@ -87,13 +87,13 @@ const Stock = ({ stock, handleStockDelete }) => {
                 </p>
               </div>
               {gainPercent > 0 ? (
-                <div className="w-16 bg-[#64fcd9] p-1 rounded-full flex justify-center items-center">
+                <div className="bg-[#64fcd9] p-1 rounded-full flex justify-center items-center">
                   <p className="truncate text-[.6rem] text-[#3b927e] font-bold">
                     +${gainPercent.toFixed(2)}
                   </p>
                 </div>
               ) : (
-                <div className="w-16 bg-[#fed7d7] p-1 rounded-full flex justify-center items-center">
+                <div className="bg-[#fed7d7] p-1 rounded-full flex justify-center items-center">
                   <p className="truncate text-[.6rem] text-[#fc6464] font-bold">
                     ${gainPercent.toFixed(2)}
                   </p>
