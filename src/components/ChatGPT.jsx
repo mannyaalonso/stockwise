@@ -71,7 +71,7 @@ const ChatGPT = () => {
               placeholder="Search a stock"
             />
             {!isLoading ? (
-              <ul className="my-5 divide-y divide-gray-200">{result}</ul>
+              <ul className="my-5 divide-y divide-gray-200 dark:text-slate-100">{result}</ul>
             ) : (
               <div className="flex items-center justify-center mt-3">
               <Triangle
