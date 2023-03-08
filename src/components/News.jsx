@@ -33,10 +33,10 @@ const News = () => {
   return (
     news && (
       <section aria-labelledby="announcements-title">
-        <div className="overflow-scroll rounded-lg bg-white shadow h-[36.5rem]">
+        <div className="overflow-scroll rounded-lg bg-white dark:bg-slate-800 shadow h-[36.5rem]">
           <div className="p-6">
             <h2
-              className="text-base font-medium text-gray-900"
+              className="text-base font-medium text-gray-900 dark:text-slate-100"
               id="announcements-title"
             >
               Recent News
@@ -46,7 +46,7 @@ const News = () => {
                 {news.sort((b,a) => new Date(...a.pubDate.split('/')) - new Date(...b.pubDate.split('/'))).map((news) => (
                   <li key={news.title} className="py-5">
                     <div className="relative focus-within:ring-2 focus-within:ring-cyan-500">
-                      <h3 className="text-sm font-semibold text-gray-800">
+                      <h3 className="text-sm font-semibold text-gray-800 dark:text-slate-100">
                         <a
                           target={"_blank"}
                           rel="noreferrer"
@@ -64,7 +64,7 @@ const News = () => {
                           </span>
                         </a>
                       </h3>
-                      <p className="mt-1 text-sm text-gray-600 line-clamp-2">
+                      <p className="mt-1 text-sm text-gray-600 dark:text-slate-200 line-clamp-2">
                         {news.title}
                       </p>
                     </div>

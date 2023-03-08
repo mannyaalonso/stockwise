@@ -79,10 +79,12 @@ const Stock = ({ stock, handleStockDelete }) => {
                 </div>
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium text-gray-900">
+                <p className="truncate text-sm font-medium text-gray-900 dark:text-slate-100">
                   {stock.ticker}
                 </p>
-                <p className="truncate text-sm text-gray-500">{stock.name}</p>
+                <p className="truncate text-sm text-gray-500 dark:text-slate-300">
+                  {stock.name}
+                </p>
               </div>
               {gainPercent > 0 ? (
                 <div className="w-12 bg-[#64fcd9] p-1 rounded-full flex justify-center items-center">
@@ -99,14 +101,14 @@ const Stock = ({ stock, handleStockDelete }) => {
               )}
 
               <div>
-                <p className="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                <p className="inline-flex items-center rounded-full bg-white dark:bg-slate-700 px-2.5 py-1 text-xs font-semibold text-gray-900 dark:text-slate-100 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                   ${history[history.length - 1].close}
                 </p>
               </div>
             </div>
           </li>
           <div>
-            <div className="inline-flex items-center rounded-full bg-white px-2 py-1 text-xs font-semibold text-red-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer">
+            <div className="inline-flex items-center rounded-full bg-white dark:bg-slate-700 px-2 py-1 text-xs font-semibold text-red-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer">
               <AiFillCloseCircle onClick={() => handleStockDelete(stock.id)} />
             </div>
           </div>

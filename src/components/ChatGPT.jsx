@@ -49,10 +49,10 @@ const ChatGPT = () => {
 
   return (
     <section aria-labelledby="recent-hires-title">
-      <div className=" rounded-lg bg-white shadow">
+      <div className=" rounded-lg bg-white dark:bg-slate-800 shadow">
         <div className="p-6">
           <h2
-            className="text-base font-medium text-gray-900 flex items-center justify-between"
+            className="text-base font-medium text-gray-900 dark:text-slate-100 flex items-center justify-between"
             id="recent-hires-title"
           >
             Chat GPT
