@@ -46,7 +46,7 @@ export default function Registration () {
         <div className="w-full max-w-md space-y-8">
           <div>
             <AiOutlineStock className="mx-auto h-12 w-auto bg-gradient-to-r from-[#4abea3] to-[#64fcd9] text-white rounded-full p-2" />
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-slate-100">
               Register for Stockwise
             </h2>
           </div>
@@ -65,7 +65,7 @@ export default function Registration () {
                   onChange={handleChange}
                   autoComplete="name"
                   required
-                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Name"
                 />
               </div>
@@ -81,7 +81,7 @@ export default function Registration () {
                   onChange={handleChange}
                   autoComplete="email"
                   required
-                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Email address"
                 />
               </div>
@@ -97,7 +97,7 @@ export default function Registration () {
                   onChange={handleChange}
                   autoComplete="current-password"
                   required
-                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Password"
                 />
               </div>
@@ -113,7 +113,7 @@ export default function Registration () {
                   onChange={handleChange}
                   autoComplete="current-password"
                   required
-                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 dark:bg-slate-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-[#4abea3] sm:text-sm sm:leading-6"
                   placeholder="Confirm Password"
                 />
               </div>
@@ -132,7 +132,7 @@ export default function Registration () {
                 Register
               </button>
               <button
-                onClick={() => navigate('/signin')}
+                onClick={() => navigate("/signin")}
                 name="guest"
                 className=" mt-2 group relative flex w-full justify-center rounded-md bg-gradient-to-r from-[#8f8f8f] to-[#636565] py-2 px-3 text-sm font-semibold text-white hover:bg-slate-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
@@ -149,7 +149,7 @@ export default function Registration () {
           <div className="mt-10 flex justify-center">
             <button
               onClick={() => navigate("/signin")}
-              className="text-sm font-semibold leading-7 text-black"
+              className="text-sm font-semibold leading-7 text-black dark:text-slate-100"
             >
               Sign in <span aria-hidden="true">&rarr;</span>
             </button>
