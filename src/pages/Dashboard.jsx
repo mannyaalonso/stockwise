@@ -1,5 +1,5 @@
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import { ReactSearchAutocomplete } from "react-search-autocomplete"
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid"
 import { Menu, Popover, Transition } from "@headlessui/react"
 import { CheckWatchlist } from "../services/PostServices"
@@ -16,12 +16,12 @@ import profile3 from "../assets/profile3.png"
 import profile4 from "../assets/profile4.png"
 import profile5 from "../assets/profile5.png"
 import profile6 from "../assets/profile6.png"
+import Switcher from "../components/Switcher"
 import Trending from "../components/Trending"
 import ChatGPT from "../components/ChatGPT"
 import Profile from "../components/Profile"
 import News from "../components/News"
 import data from "../data/data"
-import Switcher from "../components/Switcher"
 
 const navigation = [{ name: "Dashboard", href: "", current: true }]
 
@@ -360,17 +360,6 @@ const Dashboard = ({ user, handleLogOut }) => {
                         </div>
                       </div>
                     </div>
-                    {/* <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
-                      {stats.map((stat) => (
-                        <div
-                          key={stat.label}
-                          className="px-6 py-5 text-center text-sm font-medium"
-                        >
-                          <span className="text-gray-900">{stat.value}</span>{" "}
-                          <span className="text-gray-600">{stat.label}</span>
-                        </div>
-                      ))}
-                    </div> */}
                   </div>
                 </section>
                 {toggle ? (
