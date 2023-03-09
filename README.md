@@ -54,7 +54,7 @@
 
 ### **_Getting Started_**
 
-##### The Deployed Website can be viewed [here](https://main--eclectic-klepon-901b3e.netlify.app/).
+##### The Deployed Website can be viewed [here](https://stockwise-fe.netlify.app/).
 
 ##### The Entity Relationship Diagram can be viewed [here](https://lucid.app/lucidchart/315462c6-0466-440d-907f-cd580dc1488d/edit?invitationId=inv_20a33e59-ae06-4caf-9481-d88ff10fccb3).
 
@@ -78,7 +78,7 @@
 
 ### **_Future Features_**
 
--   [ ] Dark Mode
+-   [x] Dark Mode
 -   [x] ChatGPT Implementation
 
 ---
