@@ -48,7 +48,7 @@
 -   HTML
 -   CSS
 -   Tailwind
--   AWS Amplify
+-   Netlify
 
 ---
 
