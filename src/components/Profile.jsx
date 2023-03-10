@@ -7,16 +7,13 @@ const Profile = ({ user }) => {
     newPassword: "",
   }
   const [formState, setFormState] = useState(initialState)
-  const [message, setMessage] = useState("")
 
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value })
-    console.log(formState)
   }
 
   const handleUpdate = async () => {
-    const res = await UpdateStock(formState)
-    setMessage(res.status)
+    await UpdateStock(formState)
     setFormState(initialState)
   }
 
